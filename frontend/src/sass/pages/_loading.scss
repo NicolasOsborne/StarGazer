@@ -1,0 +1,17 @@
+.loading-page {
+   background: url('../assets/images/loading-screen-desktop.jpg') no-repeat center center;
+   background-size: cover;
+   width: 100%;
+   height: 100vh;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+
+   &_title {
+      color: $color-green;
+   }
+
+   @include mobile {
+      background: url('../assets/images/loading-screen-mobile.jpg') no-repeat center center;
+   }
+}
