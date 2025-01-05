@@ -1,0 +1,17 @@
+.filter {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   gap: 10px;
+   color: $color-grey;
+   cursor: pointer;
+
+   &.selected {
+      color: $color-green;
+   }
+
+   &_icon {}
+
+   &_name {}
+}

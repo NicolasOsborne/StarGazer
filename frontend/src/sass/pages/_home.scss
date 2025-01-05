@@ -1,0 +1,27 @@
+.home {
+   width: 100%;
+   height: 100vh;
+   position: relative;
+   background-color: $color-dark;
+
+   .mask {
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      z-index: 5;
+   }
+
+   &-wrapper {
+      width: 100%;
+      height: 100%;
+      padding: 40px 40px 0 40px;
+      position: relative;
+   }
+
+   @include mobile {
+      &-wrapper {
+         padding: 20px 20px 0 20px;
+      }
+   }
+}
