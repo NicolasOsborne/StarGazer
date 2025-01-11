@@ -1,0 +1,32 @@
+.leftMenuFilter {
+   width: 100%;
+   height: 60px;
+   border: 1px solid $color-grey;
+   border-radius: $border-radius;
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   align-items: center;
+   padding: 18px 10px;
+   color: $color-grey;
+
+   &.visible {
+      border: 1px solid $color-green;
+      color: $color-green;
+   }
+
+   &_title {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 12px;
+   }
+
+   &_name {
+      font-weight: 600;
+   }
+
+   &_visibility {
+      cursor: pointer;
+   }
+}

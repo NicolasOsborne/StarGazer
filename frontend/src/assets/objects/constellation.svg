@@ -1,0 +1,21 @@
+<svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g style="mix-blend-mode:color-dodge">
+<rect width="10" height="10" transform="translate(18.8589 7.78931) rotate(-35.3756)" fill="black"/>
+<circle cx="25.8304" cy="8.97151" r="5" transform="rotate(-35.3756 25.8304 8.97151)" fill="url(#paint0_radial_82_174)"/>
+</g>
+<g style="mix-blend-mode:color-dodge">
+<rect width="10" height="10" transform="translate(3 25.1816) rotate(-35.3756)" fill="black"/>
+<circle cx="9.97154" cy="26.3638" r="5" transform="rotate(-35.3756 9.97154 26.3638)" fill="url(#paint1_radial_82_174)"/>
+</g>
+<line x1="11.4184" y1="25.0364" x2="24.5948" y2="10.7752" stroke="#00FFAF" stroke-width="0.5"/>
+<defs>
+<radialGradient id="paint0_radial_82_174" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(25.8304 8.97151) rotate(90) scale(5)">
+<stop offset="0.015625" stop-color="white"/>
+<stop offset="1" stop-color="white" stop-opacity="0"/>
+</radialGradient>
+<radialGradient id="paint1_radial_82_174" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(9.97154 26.3638) rotate(90) scale(5)">
+<stop offset="0.015625" stop-color="white"/>
+<stop offset="1" stop-color="white" stop-opacity="0"/>
+</radialGradient>
+</defs>
+</svg>

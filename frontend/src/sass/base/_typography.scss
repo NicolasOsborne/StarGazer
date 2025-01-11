@@ -32,6 +32,7 @@ h3 {
 h4 {
    font-size: clamp(rem(16), 1.76vw, rem(32));
    line-height: 1.6;
+   font-weight: 700;
 }
 
 h5 {
@@ -40,7 +41,7 @@ h5 {
 }
 
 h6 {
-   font-size: clamp(rem(12), 1.32vw, rem(24));
+   font-size: clamp(rem(16), 1.3vw, rem(18));
    line-height: 1.5;
 }
 

@@ -1,0 +1,108 @@
+.rightMenu {
+   height: 100vh;
+   width: 500px;
+   position: absolute;
+   top: 0;
+   right: 0;
+   background-color: $color-black;
+   padding: 40px;
+   z-index: 15;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   align-items: left;
+
+   &_header {
+      display: flex;
+      align-items: center;
+      width: 100%;
+
+      &-close {
+         cursor: pointer;
+         margin-left: auto;
+      }
+
+      &-title {
+         color: $color-green;
+         font-weight: 700;
+         flex-grow: 1;
+         text-align: center;
+      }
+   }
+
+   &_content {
+      display: flex;
+      flex-direction: column;
+      gap: 70px;
+      width: 100%;
+
+      &_section {
+         display: flex;
+         flex-direction: column;
+         gap: 40px;
+         width: 100%;
+      }
+
+      &-title {
+         color: $color-green;
+         font-weight: 700;
+      }
+
+      &-list {
+         display: flex;
+         flex-direction: column;
+         gap: 40px;
+         width: 100%;
+      }
+
+      &-element {
+         display: flex;
+         flex-direction: row;
+         width: 100%;
+         justify-content: space-between;
+         align-items: center;
+         color: $color-green;
+      }
+
+      &-input {
+         width: 80%;
+         height: 60px;
+         border: 1px solid $color-green;
+         border-radius: $border-radius;
+         display: flex;
+         flex-direction: row;
+         align-items: center;
+         gap: 15px;
+         padding: 15px;
+
+      }
+
+      &-button {
+         width: 60px;
+         height: 60px;
+         border: 1px solid $color-green;
+         border-radius: $border-radius;
+         cursor: pointer;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+      }
+   }
+
+   &_socials {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+
+      &-logo {
+         cursor: pointer;
+      }
+   }
+
+   @include mobile {
+      width: 100vw;
+      padding: 20px;
+   }
+}
