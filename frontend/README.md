@@ -1,8 +1,25 @@
-# React + Vite
+# Projet StarGazer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Application de visualisation d'astres célestes (étoiles, planètes et constellations)
 
-Currently, two official plugins are available:
+Ce dossier contient le code pour la partie front-end de l'interface de l'application.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Il a été créé avec ReactJS + React-Router + Vite + SASS
+
+### Installation des dépendances
+
+```bash
+cd frontend
+```
+
+```bash
+npm install
+```
+
+### Compilation et lancement du projet
+
+```bash
+npm run dev
+```
+
+L'application s'ouvre sur l'URL : http://localhost:5173/
