@@ -1,0 +1,23 @@
+.header {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   align-items: center;
+
+   &_leftMenu,
+   &_rightMenu {
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+   }
+
+   @include mobile {
+
+      &_leftMenu_icon,
+      &_rightMenu_icon {
+         height: 30px;
+         width: 30px;
+      }
+   }
+}

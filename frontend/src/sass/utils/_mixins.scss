@@ -1,0 +1,38 @@
+// Font mixins
+@mixin titleFont {
+   font-family: $font-orbitron;
+}
+
+@mixin paragraphFont {
+   font-family: $font-space-grotesk;
+}
+
+
+// Border
+@mixin border-thick {
+   border: 2px solid $color-green;
+}
+
+@mixin border-thin {
+   border: 1px solid $color-green;
+}
+
+
+// Responsive Breakpoints mixins
+@mixin desktop {
+   @media only screen and (min-width: calc($screen-desktop + 1px)) and (max-width: $screen-xl-desktop) {
+      @content;
+   }
+}
+
+@mixin tablet {
+   @media only screen and (min-width: calc($screen-mobile + 1px)) and (max-width: $screen-tablet) {
+      @content;
+   }
+}
+
+@mixin mobile {
+   @media only screen and (max-width: $screen-mobile) {
+      @content;
+   }
+}

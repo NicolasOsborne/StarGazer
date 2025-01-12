@@ -1,0 +1,43 @@
+.home {
+   width: 100%;
+   height: 100vh;
+   position: relative;
+   background-color: $color-dark;
+
+   .mask {
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      z-index: 2;
+   }
+
+   &-wrapper {
+      width: 100%;
+      height: 100%;
+      padding: 40px 40px 0 40px;
+      position: relative;
+   }
+
+   @include desktop {
+      &-wrapper {
+         padding: 20px 20px 0 20px;
+      }
+   }
+
+   @include tablet {
+      &-wrapper {
+         padding: 20px 20px 0 20px;
+      }
+   }
+
+   @include mobile {
+      .mask {
+         bottom: 90px;
+      }
+
+      &-wrapper {
+         padding: 20px 20px 0 20px;
+      }
+   }
+}

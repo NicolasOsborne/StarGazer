@@ -1,0 +1,85 @@
+.leftMenu {
+   height: 100vh;
+   max-height: 100vh;
+   width: 500px;
+   position: absolute;
+   top: 0;
+   left: 0;
+   background-color: $color-black;
+   padding: 40px;
+   z-index: 15;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   align-items: left;
+
+   &_header {
+      display: flex;
+      align-items: center;
+      width: 100%;
+
+      &-close {
+         cursor: pointer;
+         margin-right: auto;
+      }
+
+      &-title {
+         color: $color-green;
+         font-weight: 700;
+         flex-grow: 1;
+         text-align: center;
+      }
+   }
+
+   &_filters {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+
+      &-title {
+         color: $color-green;
+         font-weight: 700;
+      }
+
+      &-list {
+         display: flex;
+         flex-direction: column;
+         gap: 40px;
+      }
+   }
+
+   &_socials {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+
+      &-logo {
+         cursor: pointer;
+      }
+   }
+
+   @include desktop {
+      padding: 20px;
+
+      &_filters {
+         gap: 20px;
+
+         &-title {
+            font-size: 20px;
+         }
+
+         &-list {
+            gap: 20px;
+         }
+      }
+
+
+   }
+
+   @include mobile {
+      width: 100vw;
+      padding: 20px;
+   }
+}
