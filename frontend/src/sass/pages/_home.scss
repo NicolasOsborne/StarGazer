@@ -9,7 +9,7 @@
       position: absolute;
       bottom: 0;
       left: 0;
-      z-index: 5;
+      z-index: 2;
    }
 
    &-wrapper {
@@ -17,6 +17,18 @@
       height: 100%;
       padding: 40px 40px 0 40px;
       position: relative;
+   }
+
+   @include desktop {
+      &-wrapper {
+         padding: 20px 20px 0 20px;
+      }
+   }
+
+   @include tablet {
+      &-wrapper {
+         padding: 20px 20px 0 20px;
+      }
    }
 
    @include mobile {

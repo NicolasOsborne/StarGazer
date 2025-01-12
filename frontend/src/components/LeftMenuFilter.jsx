@@ -2,13 +2,16 @@ import PropTypes from 'prop-types'
 
 import Visible from '../assets/icons/visible.svg'
 import Hidden from '../assets/icons/hidden.svg'
-import { useState } from 'react'
 
-const LeftMenuFilter = ({ src, alt, name }) => {
-  const [isVisible, setIsVisible] = useState(false)
-
+const LeftMenuFilter = ({ src, alt, name, isActive, onClick }) => {
+  const handleClick = () => {
+    onClick()
+  }
   return (
-    <div className={`leftMenuFilter ${isVisible ? 'visible' : ''}`}>
+    <button
+      className={`leftMenuFilter ${isActive ? 'visible' : ''}`}
+      onClick={handleClick}
+    >
       <div className='leftMenuFilter_title'>
         <img
           className='leftMenuFilter_icon'
@@ -19,17 +22,24 @@ const LeftMenuFilter = ({ src, alt, name }) => {
         />
         <h4 className='leftMenuFilter_name'>{name}</h4>
       </div>
-      <button
-        className='leftMenuFilter_visibility'
-        onClick={() => setIsVisible(!isVisible)}
-      >
-        {isVisible ? (
-          <img className='leftMenuFilter_visible' src={Visible} alt='Visible' />
+      <div className='leftMenuFilter_visibility'>
+        {isActive ? (
+          <img
+            className='leftMenuFilter_visible'
+            src={Visible}
+            alt='Visible'
+            height={40}
+          />
         ) : (
-          <img className='leftMenuFilter_hidden' src={Hidden} alt='Hidden' />
+          <img
+            className='leftMenuFilter_hidden'
+            src={Hidden}
+            alt='Hidden'
+            height={40}
+          />
         )}
-      </button>
-    </div>
+      </div>
+    </button>
   )
 }
 
@@ -37,6 +47,8 @@ LeftMenuFilter.propTypes = {
   src: PropTypes.string.isRequired,
   alt: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
+  isActive: PropTypes.bool.isRequired,
+  onClick: PropTypes.func.isRequired,
 }
 
 export default LeftMenuFilter

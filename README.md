@@ -41,13 +41,13 @@ Pour lancer l'application complète, vous devez démarrer les deux parties (Fron
 ```
 
 - Démarrer le Backend :
-  Ouvrez un terminal dans le dossier backend (API Symfony).
+  Ouvrez un terminal dans le dossier backend (Symfony).
 
 ```bash
 - cd backend
 ```
 
-Suivez les instructions du fichier README.md dans ce dossier pour installer les dépendances et lancer l'API.
+Suivez les instructions du fichier README.md dans ce dossier pour installer les dépendances et lancer le backend et l'API.
 
 - Démarrer le Frontend :
   Ouvrez un deuxième terminal dans le dossier frontend (Interface React).

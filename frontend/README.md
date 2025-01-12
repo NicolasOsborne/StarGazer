@@ -1,4 +1,4 @@
-# Projet StarGazer
+# Projet StarGazer - Interface Front-End - React
 
 ## Application de visualisation d'astres célestes (étoiles, planètes et constellations)
 

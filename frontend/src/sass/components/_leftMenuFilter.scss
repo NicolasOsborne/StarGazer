@@ -29,4 +29,12 @@
    &_visibility {
       cursor: pointer;
    }
+
+   @include desktop {
+      height: 50px;
+
+      &_name {
+         font-size: 20px;
+      }
+   }
 }

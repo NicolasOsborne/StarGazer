@@ -16,28 +16,51 @@ class HygdataV3TrieRepository extends ServiceEntityRepository
         parent::__construct($registry, HygdataV3Trie::class);
     }
 
-    //    /**
-    //     * @return HygdataV3Trie[] Returns an array of HygdataV3Trie objects
-    //     */
-    //    public function findByExampleField($value): array
-    //    {
-    //        return $this->createQueryBuilder('h')
-    //            ->andWhere('h.exampleField = :val')
-    //            ->setParameter('val', $value)
-    //            ->orderBy('h.id', 'ASC')
-    //            ->setMaxResults(10)
-    //            ->getQuery()
-    //            ->getResult()
-    //        ;
-    //    }
+    public function findClosestStars($limit = 50): array
+    {
+        return $this->createQueryBuilder('h')
+            ->select('h.id', 'h.proper', 'h.hip', 'h.hd', 'h.hr', 'h.gl', 'h.bf', 'h.mag', 'h.dist', 'h.con')
+            ->orderBy('h.dist', 'ASC')
+            ->setMaxResults($limit)
+            ->getQuery()
+            ->getArrayResult();
+    }
 
-    //    public function findOneBySomeField($value): ?HygdataV3Trie
-    //    {
-    //        return $this->createQueryBuilder('h')
-    //            ->andWhere('h.exampleField = :val')
-    //            ->setParameter('val', $value)
-    //            ->getQuery()
-    //            ->getOneOrNullResult()
-    //        ;
-    //    }
+    public function findBrightestStars($limit = 50): array
+    {
+        return $this->createQueryBuilder('h')
+            ->select('h.proper', 'h.hip', 'h.hd', 'h.hr', 'h.gl', 'h.bf', 'h.mag', 'h.dist', 'h.con')
+            ->orderBy('h.mag', 'ASC')
+            ->setMaxResults($limit)
+            ->getQuery()
+            ->getArrayResult();
+    }
+
+    public function findHottestStars($limit = 50): array
+    {
+        return $this->createQueryBuilder('h')
+            ->select('h.proper', 'h.hip', 'h.hd', 'h.hr', 'h.gl', 'h.bf', 'h.mag', 'h.dist', 'h.con')
+            ->orderBy('h.ci', 'ASC')
+            ->setMaxResults($limit)
+            ->getQuery()
+            ->getArrayResult();
+    }
+
+    public function findBiggestStars($limit = 50): array
+    {
+        return $this->createQueryBuilder('h')
+            ->select('h.proper', 'h.hip', 'h.hd', 'h.hr', 'h.gl', 'h.bf', 'h.mag', 'h.dist', 'h.con')
+            ->orderBy('h.lum', 'DESC')
+            ->setMaxResults($limit)
+            ->getQuery()
+            ->getArrayResult();
+    }
+
+    public function findUniqueConstellations(): array
+    {
+        return $this->createQueryBuilder('h')
+            ->select('DISTINCT h.con')
+            ->getQuery()
+            ->getArrayResult();
+    }
 }

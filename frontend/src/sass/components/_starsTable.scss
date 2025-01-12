@@ -1,0 +1,99 @@
+.starsTable {
+   @include titleFont;
+   background-color: $color-black;
+   border: 2px solid $color-green;
+   border-radius: $border-radius;
+   padding: 0 20px 20px 20px;
+   position: relative;
+   z-index: 10;
+   margin-top: 40px;
+   max-height: calc(100vh - 140px);
+   overflow-y: auto;
+   scrollbar-width: none;
+
+   &::-webkit-scrollbar {
+      display: none;
+   }
+
+   &_header {
+      width: 100%;
+      padding-top: 20px;
+      padding-bottom: 20px;
+      padding-bottom: 10px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      color: $color-green;
+      position: sticky;
+      top: 0;
+      background-color: $color-black;
+      z-index: 12;
+
+
+      &-left {
+         display: flex;
+         flex-direction: row;
+         align-items: center;
+         gap: 20px;
+      }
+
+      &-title {
+         font-weight: 600;
+         font-size: 20px;
+      }
+
+      &-close {
+         cursor: pointer;
+      }
+   }
+
+   &_table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0 20px;
+
+      &-head {
+         color: $color-green;
+         position: sticky;
+         top: 60px;
+         background-color: $color-black;
+         z-index: 12;
+         font-size: clamp(rem(14), 1.54vw, rem(28));
+         line-height: 1.6;
+
+         th {
+            text-align: left;
+            padding-bottom: 10px;
+         }
+      }
+
+      &-content {
+         td {
+            color: $color-grey;
+            text-align: left;
+            font-size: clamp(rem(16), 1.3vw, rem(18));
+            line-height: 1.5;
+         }
+
+         .starName {
+            color: $color-green;
+            font-weight: 600;
+         }
+      }
+   }
+
+   @include mobile {
+      &_table-head {
+         font-size: 8px;
+         font-weight: 400;
+      }
+
+      &_table-content {
+         td {
+            font-size: 6px;
+            font-weight: 200;
+         }
+      }
+   }
+}

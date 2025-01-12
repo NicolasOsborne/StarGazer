@@ -15,7 +15,16 @@ import Instagram from '../assets/icons/instagram.svg'
 import Youtube from '../assets/icons/youtube.svg'
 import LeftMenuFilter from './LeftMenuFilter'
 
-const LeftMenu = ({ isMobile, isLeftMenuActive, setIsLeftMenuActive }) => {
+const LeftMenu = ({
+  isMobile,
+  isLeftMenuActive,
+  setIsLeftMenuActive,
+  fetchStars,
+  starType,
+}) => {
+  const handleFilterClick = (type) => {
+    fetchStars(type)
+  }
   return (
     <section className='leftMenu'>
       <div className='leftMenu_header'>
@@ -38,29 +47,45 @@ const LeftMenu = ({ isMobile, isLeftMenuActive, setIsLeftMenuActive }) => {
         <div className='leftMenu_filters-list'>
           <LeftMenuFilter
             src={CloseStar}
-            alt='Etoiles proches'
+            alt='Étoiles proches'
             name='Étoiles proches'
+            isActive={starType === 'closest'}
+            onClick={() => handleFilterClick('closest')}
           />
           <LeftMenuFilter
             src={ShinyStar}
-            alt='Etoiles brillantes'
+            alt='Étoiles brillantes'
             name='Étoiles brillantes'
+            isActive={starType === 'brightest'}
+            onClick={() => handleFilterClick('brightest')}
           />
           <LeftMenuFilter
             src={HotStar}
-            alt='Etoiles chaudes'
+            alt='Étoiles chaudes'
             name='Étoiles chaudes'
+            isActive={starType === 'hottest'}
+            onClick={() => handleFilterClick('hottest')}
           />
           <LeftMenuFilter
             src={BigStar}
-            alt='Etoiles grosses'
+            alt='Étoiles grosses'
             name='Étoiles grosses'
+            isActive={starType === 'biggest'}
+            onClick={() => handleFilterClick('biggest')}
           />
-          <LeftMenuFilter src={Planet} alt='Planètes' name='Planètes' />
           <LeftMenuFilter
             src={Constellation}
             alt='Constellations'
             name='Constellations'
+            isActive={starType === 'constellations'}
+            onClick={() => handleFilterClick('constellations')}
+          />
+          <LeftMenuFilter
+            src={Planet}
+            alt='Planètes'
+            name='Planètes'
+            isActive={false}
+            onClick={() => handleFilterClick('')}
           />
         </div>
       </div>
@@ -102,6 +127,8 @@ LeftMenu.propTypes = {
   isMobile: PropTypes.bool.isRequired,
   isLeftMenuActive: PropTypes.bool.isRequired,
   setIsLeftMenuActive: PropTypes.func.isRequired,
+  fetchStars: PropTypes.func.isRequired,
+  starType: PropTypes.string.isRequired,
 }
 
 export default LeftMenu
