@@ -6,15 +6,59 @@ import Location from '../assets/icons/location.svg'
 import Search from '../assets/icons/search.svg'
 import Gps from '../assets/icons/gps.svg'
 import Target from '../assets/icons/target.svg'
-import Date from '../assets/icons/date.svg'
-import Time from '../assets/icons/time.svg'
+import DateIcon from '../assets/icons/date.svg'
+import TimeIcon from '../assets/icons/time.svg'
 
 import Nasa from '../assets/icons/nasa.svg'
 import Facebook from '../assets/icons/facebook.svg'
 import Instagram from '../assets/icons/instagram.svg'
 import Youtube from '../assets/icons/youtube.svg'
+import { useEffect, useState } from 'react'
 
 const RightMenu = ({ isMobile, isRightMenuActive, setIsRightMenuActive }) => {
+  const [currentDateTime, setCurrentDateTime] = useState({
+    date: '',
+    time: '',
+  })
+
+  const [userLocation, setUserLocation] = useState('Votre position')
+
+  const getUserLocation = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const { latitude, longitude } = position.coords
+          setUserLocation(`${latitude} ; ${longitude}`)
+        },
+        (error) => {
+          console.error('Error getting user location:', error)
+        }
+      )
+    } else {
+      console.error('Geolocation is not supported by this browser.')
+    }
+  }
+
+  useEffect(() => {
+    const updateDateTime = () => {
+      const now = new Date()
+      const showTime = `${now.getHours()}:${String(now.getMinutes()).padStart(
+        2,
+        '0'
+      )}:${String(now.getSeconds()).padStart(2, '0')}`
+      const showDate = `${now.getDate()}/${String(now.getMonth() + 1).padStart(
+        2,
+        '0'
+      )}/${now.getFullYear()}`
+      setCurrentDateTime({ date: showDate, time: showTime })
+    }
+
+    updateDateTime()
+    const intervalId = setInterval(updateDateTime, 1000)
+
+    return () => clearInterval(intervalId)
+  }, [])
+
   return (
     <section className='rightMenu'>
       <div className='rightMenu_header'>
@@ -39,7 +83,10 @@ const RightMenu = ({ isMobile, isRightMenuActive, setIsRightMenuActive }) => {
             <div className='rightMenu_content-element'>
               <div className='rightMenu_content-input'>
                 <img src={Location} alt='Localisation' height={30} />
-                <h6 className='rightMenu_content-text'>Grenoble, France</h6>
+                <input
+                  className='rightMenu_content-text'
+                  placeholder='Grenoble, France'
+                />
               </div>
               <button className='rightMenu_content-button'>
                 <img
@@ -52,9 +99,12 @@ const RightMenu = ({ isMobile, isRightMenuActive, setIsRightMenuActive }) => {
             <div className='rightMenu_content-element'>
               <div className='rightMenu_content-input'>
                 <img src={Gps} alt='Coordonnées GPS' height={30} />
-                <h6 className='rightMenu_content-text'>45.182670 ; 5.716070</h6>
+                <h4 className='rightMenu_content-text'>{userLocation}</h4>
               </div>
-              <button className='rightMenu_content-button'>
+              <button
+                className='rightMenu_content-button'
+                onClick={getUserLocation}
+              >
                 <img
                   src={Target}
                   alt='Géolocalisation'
@@ -69,11 +119,13 @@ const RightMenu = ({ isMobile, isRightMenuActive, setIsRightMenuActive }) => {
           <div className='rightMenu_content-list'>
             <div className='rightMenu_content-element'>
               <div className='rightMenu_content-input'>
-                <h4 className='rightMenu_content-text'>13/01/2025</h4>
+                <h4 className='rightMenu_content-text'>
+                  {currentDateTime.date}
+                </h4>
               </div>
               <button className='rightMenu_content-button'>
                 <img
-                  src={Date}
+                  src={DateIcon}
                   alt='Choisir une date'
                   height={isMobile ? 30 : 40}
                 />
@@ -81,11 +133,13 @@ const RightMenu = ({ isMobile, isRightMenuActive, setIsRightMenuActive }) => {
             </div>
             <div className='rightMenu_content-element'>
               <div className='rightMenu_content-input'>
-                <h4 className='rightMenu_content-text'>23:42</h4>
+                <h4 className='rightMenu_content-text'>
+                  {currentDateTime.time}
+                </h4>
               </div>
               <button className='rightMenu_content-button'>
                 <img
-                  src={Time}
+                  src={TimeIcon}
                   alt='Choisir une heure'
                   height={isMobile ? 30 : 40}
                 />
